@@ -10,8 +10,16 @@ public class ConnectionManager {
     private static final String DBUSER = "root";
     private static final String DBPASSWORD = "";
 
-    public static Connection getConnection() throws SQLException, ClassNotFoundException{
-        Class.forName("com.mysql.jdbc.Driver");
-        return DriverManager.getConnection(JDBCURL, DBUSER, DBPASSWORD);
+    public static Connection getConnection() throws SQLException{
+        Connection conn = null;
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            conn = DriverManager.getConnection(JDBCURL, DBUSER, DBPASSWORD);
+        } catch (ClassNotFoundException e){
+            System.out.println(e);
+        }
+        finally {
+            return conn;
+        }
     }
 }
