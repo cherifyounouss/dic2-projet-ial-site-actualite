@@ -7,8 +7,13 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
+<<<<<<< HEAD
 class User extends Authenticatable
 {
+=======
+class User extends Authenticatable{
+
+>>>>>>> work
     use HasFactory, Notifiable;
 
     /**
@@ -40,4 +45,13 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+<<<<<<< HEAD
+=======
+
+    public function article(){
+
+        return $this->hasMany('App\Models\Article');
+
+    }
+>>>>>>> work
 }
