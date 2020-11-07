@@ -12,36 +12,54 @@ class ArticleController extends Controller{
 
     //
 
-    public function get_articles(){
+    public function get_articles(Request $request){
+
 
         $articles = Article::all();
 
-        var_dump($articles);
+        if($request->is('*api/articles')){
 
-        die();
+            return json_encode($articles);
+
+        }else{
+
+            echo("wait for Coumba");
+
+        }
 
     }
 
-    public function get_article($id){
+    public function get_article(Request $request, $id){
 
         $article = Article::find($id);
 
-        var_dump($article);
+        if($request->is('*api/articles/*')){
 
-        die();
+            return json_encode($article);
+
+        }else{
+
+            echo("wait for Coumba");
+
+        }
 
     }
 
-    public function get_articles_by_category($category_id){
+    public function get_articles_by_category(Request $request, $category_id){
 
         $category = Categorie::find($category_id);
 
         $articles = $category->article()->get();
 
-        var_dump($articles);
+        if($request->is('*api/articles/category/*')){
 
-        die();
+            return json_encode($articles);
 
+        }else{
+
+            echo("wait for Coumba");
+
+        }
     }
 
 
