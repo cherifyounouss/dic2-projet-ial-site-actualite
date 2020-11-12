@@ -5,6 +5,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
 import database.ConnectionManager;
 
@@ -44,8 +46,11 @@ public class UserDAO {
             statement.setInt(1, id);
             if (statement.execute()) {
                 resultSet = statement.getResultSet();
-                if (resultSet != null && resultSet.next())
-                    return getUser(resultSet);
+                if (resultSet != null && resultSet.next()) {
+                    User user = getUser(resultSet);
+                    user.setPassword("");
+                    return user;
+                }
             }
         }
         finally {
@@ -58,12 +63,102 @@ public class UserDAO {
         return null;
     }
 
+    public List<User> getAllUsers() throws SQLException {
+        Connection conn = ConnectionManager.getConnection();
+        Statement statement = null;
+        ResultSet resultSet = null;
+        ArrayList<User> users = new ArrayList<>();
+        try {
+                statement = conn.createStatement();
+                resultSet = statement.executeQuery("SELECT * FROM user");
+                if (resultSet != null) {
+                    while (resultSet.next()) {
+                        users.add(getUser(resultSet));
+                    }
+                    return users;
+                }
+        }
+        finally {
+            if (statement != null)
+                statement.close();
+            if (resultSet != null)
+                resultSet.close();
+            conn.close();
+        }
+        return null;
+    }
+
+    public boolean deleteUser(int id) throws SQLException {
+        Connection conn = ConnectionManager.getConnection();
+        String sql = "DELETE FROM user WHERE id_user=?";
+        PreparedStatement statement = null;
+        try {
+            statement = conn.prepareStatement(sql);
+            statement.setInt(1, id);
+            statement.execute();
+            return true;
+        }
+        finally {
+            if (statement != null)
+                statement.close();
+            conn.close();
+        }
+    }
+
+    public boolean updateUser(User user) throws SQLException {
+        Connection conn = ConnectionManager.getConnection();
+        String sql = "UPDATE user SET name = ?, login = ?, password = ? WHERE id_user = ?";
+        PreparedStatement statement = null;
+        try {
+            statement = conn.prepareStatement(sql);
+            int cursor = 1;
+            statement.setString(cursor++, user.getName());
+            statement.setString(cursor++, user.getLogin());
+            statement.setString(cursor++, user.getPassword());
+            statement.setInt(cursor++, user.getId());
+            statement.execute();
+            return true;
+        }
+        finally {
+            if (statement != null)
+                statement.close();
+            conn.close();
+        }
+    }
+
     private User getUser(ResultSet resultSet) throws SQLException {
         User user = new User();
         user.setId(resultSet.getInt("id_user"));
         user.setName(resultSet.getString("name"));
         user.setLogin(resultSet.getString("login"));
-        user.setPassword("");
+        user.setPassword(resultSet.getString("password"));
         return user;
+    }
+
+    public User authenticate(String login, String password) throws SQLException{
+        Connection conn = ConnectionManager.getConnection();
+        PreparedStatement statement = null;
+        ResultSet resultSet = null;
+        try {
+            statement = conn.prepareStatement("SELECT * FROM user WHERE login = ?");
+            statement.setString(1, login);
+            if (statement.execute()) {
+                resultSet = statement.getResultSet();
+                if (resultSet != null && resultSet.next()) {
+                    User user = getUser(resultSet);
+                    if (!user.getPassword().equals(password))
+                        return null;
+                    return user;
+                }
+            }
+        }
+        finally {
+            if (statement != null)
+                statement.close();
+            if (resultSet != null)
+                resultSet.close();
+            conn.close();
+        }
+        return null;
     }
 }
