@@ -1,0 +1,47 @@
+.card{
+
+}
+.rowlog{
+	background-color:lavender;margin-top: 6%;height:300px;padding-top:30px;
+}
+h1{
+	text-align: center;color:white;
+}
+.titre{
+	padding-top: 300px
+}
+
+
+.ctt{
+	box-shadow: 3px 3px 3px 3px;
+	background-color: ;
+	margin-top:150px;
+}
+.rluser{
+	border-bottom :2px solid steelblue;height:80px;
+}
+.rowhead{
+	height:80px;padding-top: 20px;border-bottom:1px solid grey;
+
+}
+.fa{
+	font-size: 27px
+
+}
+.fa-remove{
+	color: red
+}
+.actions{
+
+padding-top: 20px
+
+}
+.modal-dialog{
+	margin-top: 100px
+}
+.btnajout{
+	float:right;color:steelblue;
+}
+.bajout{
+	padding-top:20px;
+}
