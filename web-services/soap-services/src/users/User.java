@@ -30,6 +30,12 @@ public class User {
         return id;
     }
 
+    public User(int id, String name, String login) {
+        this.id = id;
+        this.name = name;
+        this.login = login;
+    }
+
     public void setId(int id) {
         this.id = id;
     }
@@ -58,5 +64,8 @@ public class User {
         this.password = password;
     }
 
-    
+    @Override
+    public String toString() {
+        return String.format("%d,%s,%s", this.id, this.name, this.login);
+    }
 }
