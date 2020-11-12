@@ -1,6 +1,3 @@
-@extends('layouts.master')
-
-@section('content')
     <div id="conte">
 
         <div class="container ctt">
@@ -146,19 +143,5 @@
 						  </div>
 						 </div>
 
-						
-
-
-
         </div>
     </div>
-            @if($estOk ?? '')
-        		<script type="text/javascript">
-        			alert("Opération effectuée avec succés !");
-        		</script>
-        	@else
-        		<script type="text/javascript">
-        			aler("Oups l'opération a échoué, veuillez réessayer utérieurement !");
-        		</script>
-        	@endif
-@endsection

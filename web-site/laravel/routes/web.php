@@ -30,18 +30,15 @@ Route::get('useredit', function () {
     return view('useredit');
 });
 Route::get('listusers','ManageUserController@index');
-Route::get('adminmanagearticles', function () {
-    return view('listarticles');
-});
+Route::get('gestionarticles','ManageArticleController@index');
+Route::get('gestionarticles/{action}','ArticlesControler@index');
 Route::get('addarticle', function () {
     return view('addarticle');
 });
-Route::get('deletearticle', function () {
-    return view('deletearticle');
+Route::get('deletearticle/id','ManageArticleController@delete');
 });
-Route::get('articleedit', function () {
-    return view('articleedit');
-});
+Route::post('articleedit','ManageArticleController@edit');
+Route::post('addarticle','ManageArticleController@add');
 Route::get('addcategorie', function () {
     return view('addcategorie');
 });

@@ -11,6 +11,8 @@ class ConnectController extends Controller
     	$password=$_POST['password'];
     	if(1)
     		return view('Layouts.adminprofile');
+    	else
+    		return view('logadmin',['estOk',0]);
 
     }
 }
