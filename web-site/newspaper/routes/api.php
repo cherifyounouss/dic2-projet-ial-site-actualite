@@ -20,6 +20,16 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::get('articles', 'ArticleController@get_articles');
 
+Route::get('/xml/articles', 'ArticleController@get_articles'); // for whoever wants to use damn xml
+
+
+
 Route::get('articles/{id}', 'ArticleController@get_article');
 
+Route::get('/xml/articles/{id}', 'ArticleController@get_article');// for whoever wants to use damn xml
+
+
+
 Route::get('articles/category/{category_id}', 'ArticleController@get_articles_by_category');
+
+Route::get('/xml/articles/category/{category_id}', 'ArticleController@get_articles_by_category');// for whoever wants to use damn xml

@@ -11,9 +11,7 @@ use App\Models\Categorie;
 class ArticleController extends Controller{
 
     //
-
     public function get_articles(Request $request){
-
 
         $articles = Article::all();
 
@@ -21,7 +19,34 @@ class ArticleController extends Controller{
 
             return json_encode($articles);
 
-        }else{
+
+        }
+        elseif($request->is('*api/xml/articles')){
+
+            $articles = $articles->toArray();
+
+            $xml = new \SimpleXmlElement('<root/>');
+
+            foreach ($articles as $article) {
+
+                $article_node = $xml->addChild('article');
+
+                $article_node->addChild('id',$article['id']);
+
+                $article_node->addChild('title',$article['title']);
+
+                $article_node->addChild('content',$article['content']);
+
+                $article_node->addChild('user_id',$article['user_id']);
+
+                $article_node->addChild('categorie_id',$article['categorie_id']);
+
+            }
+
+            return $xml->asXML();
+
+        }
+        else{
 
             echo("wait for Coumba");
 
@@ -36,6 +61,25 @@ class ArticleController extends Controller{
         if($request->is('*api/articles/*')){
 
             return json_encode($article);
+
+        }
+        elseif($request->is('*api/xml/articles/*')){
+
+            $xml = new \SimpleXmlElement('<root/>');
+
+            $article_node = $xml->addChild('article');
+
+            $article_node->addChild('id',$article->id);
+
+            $article_node->addChild('title',$article->title);
+
+            $article_node->addChild('content',$article->content);
+
+            $article_node->addChild('user_id',$article->user_id);
+
+            $article_node->addChild('categorie_id',$article->categorie_id);
+
+            return $xml->asXML();
 
         }else{
 
@@ -55,12 +99,35 @@ class ArticleController extends Controller{
 
             return json_encode($articles);
 
+        }elseif($request->is('*api/xml/articles/category/*')){
+
+            $articles = $articles->toArray();
+
+            $xml = new \SimpleXmlElement('<root/>');
+
+            foreach ($articles as $article) {
+
+                $article_node = $xml->addChild('article');
+
+                $article_node->addChild('id',$article['id']);
+
+                $article_node->addChild('title',$article['title']);
+
+                $article_node->addChild('content',$article['content']);
+
+                $article_node->addChild('user_id',$article['user_id']);
+
+                $article_node->addChild('categorie_id',$article['categorie_id']);
+
+            }
+
+            return $xml->asXML();
+
         }else{
 
             echo("wait for Coumba");
 
         }
     }
-
 
 }
