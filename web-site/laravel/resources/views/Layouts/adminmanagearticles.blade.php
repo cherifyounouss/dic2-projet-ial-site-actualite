@@ -1,8 +1,8 @@
 @extends('layouts.master')
-@include('layouts/_masternavadmin2')
+@include('layouts/masternavadmin2')
 
 @section('content')
-	     @if($action=="articles")
+	     @if($action ?? ''=="articles")
         	@include('Layouts.listearticles');
         @else
         	@include('Layouts.listecategories')
@@ -14,7 +14,7 @@
         	</script>
         @else
         	<script type="text/javascript">
-        		aler("Oups l'opération a échoué, veuillez réessayer utérieurement !");
+        		alert("Oups l'opération a échoué, veuillez réessayer utérieurement !");
         	</script>
         @endif
 @endsection

@@ -1,5 +1,3 @@
-
-
 <header class="clearfix"> 
                 
         <!-- Start  Logo & Naviagtion  -->
@@ -16,9 +14,9 @@
                 <div class="navbar-collapse collapse nv"> 
                     <!-- Start Navigation List -->
                     <ul class="nav navbar-nav navbar-right">
-                        <li> <a class="active" href="listusers">Gestion utilisateurs</a></li>
-                        <li> <a href="gestionarticles/articles">Gestions aticles</a></li>
-                        <li><a href="{{ route('adminlog') }}">Se déconnecter</a> </li>
+                        <li> <a class="active" href="/listusers">Gestion utilisateurs</a></li>
+                        <li> <a href="/gestionarticles/articles">Gestions aticles</a></li>
+                        <li><a href="/adminlog">Se déconnecter</a> </li>
 
                     </ul>
                     <!-- End Navigation List --> 

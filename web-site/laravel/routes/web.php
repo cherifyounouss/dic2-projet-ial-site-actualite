@@ -25,13 +25,12 @@ Route::get('adminprofile', function () {
 });
 Route::post('adduser','ManageUserController@addUser');
 Route::post('useredit','ManageUserController@editUser');
-Route::get('deleteuser','ManageUserController@deleteUser');
+Route::get('deleteuser/{id}','ManageUserController@deleteUser');
 Route::get('useredit', function () {
     return view('useredit');
 });
 Route::get('listusers','ManageUserController@index');
-Route::get('gestionarticles','ManageArticleController@index');
-Route::get('gestionarticles/{action}','ArticlesControler@index');
+Route::get('gestionarticles/{action}','ArticlesController@index');
 Route::get('addarticle', function () {
     return view('addarticle');
 });

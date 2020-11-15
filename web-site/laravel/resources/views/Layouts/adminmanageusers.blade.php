@@ -20,7 +20,7 @@
                             </div>
                             <div class="col-md-3 col-xs-2 actions">
                                 <a href="#" class="dmodal2 " data-toggle="modal" data-target="#exampleModal"><span class="fa fa-edit"></span>&nbsp&nbsp&nbsp&nbsp</a>
-                                <a href="deleteuser/1" class="dmodal" data-toggle="modal" data-target="#exampleModal"><span class="fa fa-remove"></span></a>
+                                <a href="deleteuser/1"><span class="fa fa-remove"></span></a>
                                 <input type="hidden" class="inid" name="iduser" value="1">
                             </div>
                     </div>
@@ -31,8 +31,8 @@
                                 
                             </div>
                             <div class="col-md-3 col-xs-2 actions">
-                                <a href=""><span class="fa fa-edit"></span>&nbsp&nbsp&nbsp&nbsp</a>
-                                <a href=""><span class="fa fa-remove"></span></a>
+                                <a href="#"><span class="fa fa-edit"></span>&nbsp&nbsp&nbsp&nbsp</a>
+                                <a href="#"><span class="fa fa-remove"></span></a>
                             </div>
                     </div>
 
@@ -146,19 +146,22 @@
 						  </div>
 						 </div>
 
-						
-
-
-
         </div>
     </div>
-            @if($estOk ?? '')
-        		<script type="text/javascript">
-        			alert("Opération effectuée avec succés !");
-        		</script>
-        	@else
-        		<script type="text/javascript">
-        			aler("Oups l'opération a échoué, veuillez réessayer utérieurement !");
-        		</script>
-        	@endif
+
+    	@if(isset($estOk))
+    	
+          @if($estOk)
+    		<script type="text/javascript">
+    			alert("Opération effectuée avec succés !");
+    		</script>
+    	  @else
+    		<script type="text/javascript">
+    			alert("Oups l'opération a échoué, veuillez réessayer utérieurement !");
+    		</script>
+    	  @endif
+    	@endif
+    	 
+ 
 @endsection
+ 

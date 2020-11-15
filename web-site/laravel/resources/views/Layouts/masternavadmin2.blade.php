@@ -16,9 +16,9 @@
                 <div class="navbar-collapse collapse nv"> 
                     <!-- Start Navigation List -->
                     <ul class="nav navbar-nav navbar-right">
-                        <li> <a href="listusers">Gestion utilisateurs</a></li>
-                        <li> <a class="active" href="gestionarticles/articles">Gestions aticles</a></li>
-                        <li><a href="{{ route('adminlog') }}">Se déconnecter</a> </li>
+                        <li> <a href="/listusers">Gestion utilisateurs</a></li>
+                        <li> <a class="active" href="/gestionarticles/articles">Gestions aticles</a></li>
+                        <li><a href="/adminlog">Se déconnecter</a> </li>
 
                     </ul>
                     <!-- End Navigation List --> 
@@ -27,7 +27,7 @@
             <div class="navbar">
                 <div class="row">
                     <div class="col-md-6">
-                        <h4><a class="choice" href="gestionarticles/articles">Articles</a></h4>
+                        <h4><a class="choice" href="/gestionarticles/articles">Articles</a></h4>
                     </div>
 
                     <div class="col-md-6">
