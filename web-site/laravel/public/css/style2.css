@@ -37,7 +37,7 @@ padding-top: 20px
 
 }
 .modal-dialog{
-	margin-top: 100px
+	margin-top: 130px
 }
 .btnajout{
 	float:right;color:steelblue;
@@ -46,9 +46,29 @@ padding-top: 20px
 	padding-top:20px;
 }
 .choice{
-	text-align: center; size:50px;
+ size:50px;
 }
+
 .navbar{
 	border-bottom :steelblue;
 
+}
+.art{
+	border-bottom:4px solid steelblue;
+	
+	
+}
+.divchoice1{
+height:50px;padding-left: 300px
+}
+.clicked{
+	border-bottom:4px solid steelblue;
+
+}
+.nonclicked{
+	border-bottom:none;
+
+}
+.divchoice2{
+	padding-left:240px;
 }

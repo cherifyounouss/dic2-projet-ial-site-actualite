@@ -22,12 +22,20 @@ class ManageArticleController extends Controller
     	return view('layouts.adminmanagearticles/articles',compact('estOk','datas'));
 
     }
-    public function delete(){
+    public function delete($id){
 
-    	//$estOk=delete($_GET['id');
+    	//$estOk=delete($id);
     	$estOk=1;
     	//On lui passe la nouvelle liste d'utilisateur plus le rapport de la supression (estOk) 
     	return view('layouts.adminmanagearticles/articles',['estOk'=>1]);
+
+    }
+       public function more($id,$contenu){
+
+        //$estOk=delete($_GET['id');
+        $estOk=1;
+        //On lui passe la nouvelle liste d'utilisateur plus le rapport de la supression (estOk) 
+        return view('layouts.more/articles',compact($id,$contenu));
 
     }
     public function add(){

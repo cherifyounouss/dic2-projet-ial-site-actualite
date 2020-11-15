@@ -15,7 +15,7 @@
                     <!-- Start Navigation List -->
                     <ul class="nav navbar-nav navbar-right">
                         <li> <a class="active" href="/listusers">Gestion utilisateurs</a></li>
-                        <li> <a href="/gestionarticles/articles">Gestions aticles</a></li>
+                        <li> <a class="nonactive" href="/gestionarticles/articles">Gestions aticles</a></li>
                         <li><a href="/adminlog">Se déconnecter</a> </li>
 
                     </ul>

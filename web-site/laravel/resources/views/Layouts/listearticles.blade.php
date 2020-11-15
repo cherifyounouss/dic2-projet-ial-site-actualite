@@ -13,14 +13,15 @@
 
                     <div class="row rluser">
                             <div class="col-md-9 col-xs-7">
-                            	<span>Articlie N° {{$article->id}} {{$article->titre}}</span><br>
-                                <p class="">{{$article->content}}</p><br>
+
+                            	<span>Articlie N° {{$article['id']}} <a href="/more/{{$article['id']}}/{{$article['content']}}">{{$article['titre']}}</a></span><br>
+                                <p class="">{{$article['content']}}</p><br>
                                 
                             </div>
                             <div class="col-md-3 col-xs-2 actions">
                                 <a href="#" class="dmodal2 " data-toggle="modal" data-target="#exampleModal"><span class="fa fa-edit"></span>&nbsp&nbsp&nbsp&nbsp</a>
-                                <a href="deletearticle/{{$article->id}}" class="dmodal" data-toggle="modal" data-target="#exampleModal"><span class="fa fa-remove"></span></a>
-                                <input type="hidden" class="inid" name="iduser" value="{{$article->id}}">
+                                <a href="deletearticle/{{$article['id']}}" class="dmodal" data-toggle="modal" data-target="#exampleModal"><span class="fa fa-remove"></span></a>
+                                <input type="hidden" class="inid" name="iduser" value="{{$article['id']}}">
                             </div>
                     </div>
             @endforeach
@@ -36,12 +37,12 @@
 						      </div>
 						      <div class="modal-body">
 
-		                    <form method="POST" action="articleedit">
+		                    <form method="POST" action="/articleedit">
 		                        @csrf
 		                        
 		                      	<input type="hidden" name="id" value="fjj">
 		                        <div class="form-group row">
-		                            <label for="titre" class="col-md-3 col-form-label text-md-right" >Nouveau login</label>
+		                            <label for="titre" class="col-md-3 col-form-label text-md-right" >titre</label>
 
 		                            <div class="col-md-8">
 		                                <input id="titre" type="text" class="form-control" name="titre" placeholder="Saisir le titre" required  autofocus>
@@ -52,7 +53,8 @@
 		                            <label for="contenu" class="col-md-3 col-form-label text-md-right">Contenu</label>
 
 		                            <div class="col-md-8">
-		                                <input id="contenu" type="text" class="form-control" name="contenu1" placeholder="Votre mot de passe" required >
+		                                <textarea id="contenu" type="textarea" class="form-control" name="content" placeholder="Saisissez le contenu" required >
+		                                </textarea>
 
 		                                
 		                            </div>
@@ -78,7 +80,7 @@
 						      </div>
 						      <div class="modal-body">
 
-		                    <form method="POST" action="addarticle">
+		                    <form method="POST" action="/addarticle">
 		                        @csrf
 		                        <div class="form-group row">
 		                            <label for="titre" class="col-md-3 col-form-label text-md-right" >Le titre</label>
@@ -91,7 +93,8 @@
 		                            <label for="Contenu" class="col-md-3 col-form-label text-md-right" >Contenu</label>
 
 		                            <div class="col-md-8">
-		                                <input id="contenu" type="text" class="form-control" name="Contenu" placeholder="Vote Contenu" required  autofocus>
+		                                <textarea id="contenu" type="text" class="form-control" name="contenu" placeholder="Vote Contenu" required  autofocus>
+		                                </textarea>
 		                            </div>
 		                        </div>
 

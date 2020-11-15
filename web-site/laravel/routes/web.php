@@ -37,6 +37,7 @@ Route::get('addarticle', function () {
 Route::get('deletearticle/id','ManageArticleController@delete');
 Route::post('articleedit','ManageArticleController@edit');
 Route::post('addarticle','ManageArticleController@add');
+Route::post('more/{titre}/{contenu}','ManageArticleController@more');
 Route::get('addcategorie', function () {
     return view('addcategorie');
 });

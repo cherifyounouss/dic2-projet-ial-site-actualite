@@ -26,12 +26,12 @@
             </div>
             <div class="sousnav">
                 <div class="row">
-                    <div class="col-md-6 clicked divchoice1">
+                    <div class="col-md-6 divchoice1 nonclicked">
                         <h4><a class="choice" href="/gestionarticles/articles">Articles</a></h4>
                     </div>
 
-                    <div class="col-md-6 nonclicked  divchoice2">
-                        <h4><a class="choice choix2 " href="/gestionarticles/categories">Catégries</a></h4>
+                    <div class="col-md-6 divchoice2 clicked">
+                        <h4><a class="choice " href="/gestionarticles/categories">Catégries</a></h4>
                     </div>
 
                 </div>

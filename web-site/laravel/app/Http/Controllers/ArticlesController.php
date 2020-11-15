@@ -15,9 +15,10 @@ class ArticlesController extends Controller
     	}
     	else{
     		//ce sont des articles
-    		$articles=[['id'=>1,'content'=>'Le corona virus fait des ravages en europe avec des milliers de deces enregistrés','date'=>'11/2/2010'],['id'=>2,'content'=>'Le corona virus fait des ravages en europe avec des milliers de deces enregistrés','date'=>'11/2/2010']];
+    		$articles=array(array('id'=>1,'titre'=>'Le corona aux etatats unis','content'=>'Le corona virus fait des ravages en europe avec des milliers de deces enregistrés','date'=>'11/2/2010'),array('id'=>2,'titre'=>'le ccorona aux etats unis','content'=>'Le corona virus fait des ravages en europe avec des milliers de deces enregistrés','date'=>'11/2/2010'));
     		$action='articles';
-    		return view('Layouts.adminmanagearticles',['action','articles']);
+
+    		return view('Layouts.adminmanagearticles',compact('action','articles'));
     	}
 
     }

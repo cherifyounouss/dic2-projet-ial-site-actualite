@@ -75,6 +75,14 @@
      $(".idd").attr("value",valeur);
       
     });
+      $(".nonactive").click(function(){ 
+
+     $(".nonactive").attr("class","active");
+     $(".active").attr("class","nonactive");
+      
+    });
+
+
 
 })
 
