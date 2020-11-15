@@ -16,12 +16,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-<<<<<<< HEAD
-=======
 
 Route::get('articles', 'ArticleController@get_articles');
 
 Route::get('articles/{id}', 'ArticleController@get_article');
 
 Route::get('articles/category/{category_id}', 'ArticleController@get_articles_by_category');
->>>>>>> work
