@@ -15,12 +15,14 @@
                             <div class="col-md-9 col-xs-7">
 
                             	<span>Articlie N° {{$article['id']}} <a href="/more/{{$article['id']}}/{{$article['content']}}">{{$article['titre']}}</a></span><br>
-                                <p class="">{{$article['content']}}</p><br>
+                                <p class="">{{$article['content']}}</p>
+                                
+                                <span>publié le {{$article['date']}}</span>
                                 
                             </div>
                             <div class="col-md-3 col-xs-2 actions">
                                 <a href="#" class="dmodal2 " data-toggle="modal" data-target="#exampleModal"><span class="fa fa-edit"></span>&nbsp&nbsp&nbsp&nbsp</a>
-                                <a href="deletearticle/{{$article['id']}}" class="dmodal" data-toggle="modal" data-target="#exampleModal"><span class="fa fa-remove"></span></a>
+                                <a href="/deletearticle/{{$article['id']}}" ><span class="fa fa-remove"></span></a>
                                 <input type="hidden" class="inid" name="iduser" value="{{$article['id']}}">
                             </div>
                     </div>
@@ -37,7 +39,7 @@
 						      </div>
 						      <div class="modal-body">
 
-		                    <form method="POST" action="/articleedit">
+		                    <form method="POST" action="articleedit">
 		                        @csrf
 		                        
 		                      	<input type="hidden" name="id" value="fjj">
@@ -80,7 +82,7 @@
 						      </div>
 						      <div class="modal-body">
 
-		                    <form method="POST" action="/addarticle">
+		                    <form method="POST" action="addarticle">
 		                        @csrf
 		                        <div class="form-group row">
 		                            <label for="titre" class="col-md-3 col-form-label text-md-right" >Le titre</label>

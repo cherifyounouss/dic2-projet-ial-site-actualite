@@ -31,7 +31,7 @@
                     </div>
 
                     <div class="col-md-6 divchoice2 clicked">
-                        <h4><a class="choice " href="/gestionarticles/categories">Catégries</a></h4>
+                        <h4><a class="choice " href="/gestionarticles/categories">Catégories</a></h4>
                     </div>
 
                 </div>

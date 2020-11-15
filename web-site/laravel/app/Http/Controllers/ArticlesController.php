@@ -9,9 +9,9 @@ class ArticlesController extends Controller
     	//call checkAuthentification function()
     	if($action=='categories'){
     		//call methode which return all categories
-    		$allcategories=['jounal','divers','metos'];
+    		$categories=[['id'=>1,'label'=>'jounal'],['id'=>2,'label'=>'divers']];
     		$action='categories';
-    		return view('Layouts.adminmanagearticles',['action','categories']);
+    		return view('Layouts.adminmanagearticles',compact('action','categories'));
     	}
     	else{
     		//ce sont des articles

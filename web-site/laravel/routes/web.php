@@ -34,18 +34,12 @@ Route::get('gestionarticles/{action}','ArticlesController@index');
 Route::get('addarticle', function () {
     return view('addarticle');
 });
-Route::get('deletearticle/id','ManageArticleController@delete');
+Route::get('deletearticle/{id}','ManageArticleController@delete');
 Route::post('articleedit','ManageArticleController@edit');
 Route::post('addarticle','ManageArticleController@add');
 Route::post('more/{titre}/{contenu}','ManageArticleController@more');
-Route::get('addcategorie', function () {
-    return view('addcategorie');
-});
-Route::get('deletecategorie', function () {
-    return view('deletecategorie');
-});
-Route::get('categorieedit', function () {
-    return view('categorieedit');
-});
+Route::get('addcategorie',"ManageArticleController@addCategorie");
+Route::get('deletecategorie/{id}','ManageArticleController@deleteCategorie');
+Route::get('categorieedit','ManageArticleController@editCategorie');
 
 

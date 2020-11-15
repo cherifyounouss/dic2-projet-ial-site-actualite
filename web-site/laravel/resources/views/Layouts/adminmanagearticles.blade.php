@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('content')
-	     @if($action ?? ''=="articles")
+	@if($action=="articles")
                 @include('layouts/masternavadmin2')
         	@include('Layouts.listearticles');
         @else

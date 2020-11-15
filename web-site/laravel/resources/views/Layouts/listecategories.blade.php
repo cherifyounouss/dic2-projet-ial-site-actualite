@@ -6,32 +6,24 @@
         	</div>
 
         	<div class="rowhead">
-        		<h2 class="r"> Liste des utilisateurs</h2>
+        		<h2 class="r"> Catégories</h2>
         	</div>
+
+        	@foreach($categories as $categorie)
 
                     <div class="row rluser">
                             <div class="col-md-9 col-xs-7">
-                            	<span>N° 1</span><br>
-                                <span class="fa fa-user"></span><span>&nbsp  Mamy Ndiaye</span><br>
+
+                            	<span>{{$categorie['label']}}</span><br>
                                 
                             </div>
                             <div class="col-md-3 col-xs-2 actions">
                                 <a href="#" class="dmodal2 " data-toggle="modal" data-target="#exampleModal"><span class="fa fa-edit"></span>&nbsp&nbsp&nbsp&nbsp</a>
-                                <a href="deleteuser/1" class="dmodal" data-toggle="modal" data-target="#exampleModal"><span class="fa fa-remove"></span></a>
-                                <input type="hidden" class="inid" name="iduser" value="1">
+                                <a href="/deletecategorie/{{$categorie['id']}}" ><span class="fa fa-remove"></span></a>
+                                <input type="hidden" class="inid" name="iduser" value="{{$categorie['id']}}">
                             </div>
                     </div>
-                    <div class="row rluser">
-                            <div class="col-md-9 col-xs-7">
-                            	<span>N° 1</span><br>
-                                <span class="fa fa-user"></span><span>&nbsp  Mamy Ndiaye</span><br>
-                                
-                            </div>
-                            <div class="col-md-3 col-xs-2 actions">
-                                <a href=""><span class="fa fa-edit"></span>&nbsp&nbsp&nbsp&nbsp</a>
-                                <a href=""><span class="fa fa-remove"></span></a>
-                            </div>
-                    </div>
+            @endforeach
 
 
 
@@ -40,43 +32,26 @@
 						  <div class="modal-dialog" role="document">
 						    <div class="modal-content">
 						      <div class="modal-header">
-						        <h5 class="modal-title" id="exampleModalLabel">Modifier infos utilisateur</h5>
+						        <h5 class="modal-title" id="exampleModalLabel">Modifier categorie</h5>
 						        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
 						          <span aria-hidden="true">&times;</span>
 						        </button>
 						      </div>
 						      <div class="modal-body">
 
-		                    <form method="POST" action="useredit">
+		                    <form method="POST" action="categorieedit">
 		                        @csrf
 		                        
 		                      	<input type="hidden" name="id" value="fjj">
 		                        <div class="form-group row">
-		                            <label for="email" class="col-md-3 col-form-label text-md-right" >Nouveau login</label>
+		                            <label for="categorie" class="col-md-3 col-form-label text-md-right" >Label</label>
 
 		                            <div class="col-md-8">
-		                                <input id="email" type="email" class="form-control" name="email" placeholder="Vote adresse email" required  autofocus>
+		                                <input id="categorie" type="text" class="form-control" name="categorie" placeholder="categorie" required  autofocus>
 		                            </div>
 		                        </div>
 
-		                        <div class="form-group row">
-		                            <label for="password" class="col-md-3 col-form-label text-md-right">Nouveau mot de passe</label>
 
-		                            <div class="col-md-8">
-		                                <input id="password" type="password" class="form-control" name="password1" placeholder="Votre mot de passe" required >
-
-		                                
-		                            </div>
-		                        </div>
-		                        <div class="form-group row">
-		                            <label for="password2" class="col-md-3 col-form-label text-md-right">Confirmez mot de passe</label>
-
-		                            <div class="col-md-8">
-		                                <input id="password" type="password" class="form-control" name="password" placeholder="Confirmez mot de passe" required >
-
-		                                
-		                            </div>
-		                        </div>
 						      </div>
 						      <div class="modal-footer">
 						        <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
@@ -91,48 +66,23 @@
 						  <div class="modal-dialog" role="document">
 						    <div class="modal-content">
 						      <div class="modal-header">
-						        <h5 class="modal-title" id="addModalLabel">Ajouter utilisateur</h5>
+						        <h5 class="modal-title" id="addModalLabel">Ajouter categorie</h5>
 						        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
 						          <span aria-hidden="true">&times;</span>
 						        </button>
 						      </div>
 						      <div class="modal-body">
 
-		                    <form method="POST" action="adduser">
+		                    <form method="POST" action="addcategorie">
 		                        @csrf
 		                        <div class="form-group row">
-		                            <label for="nom" class="col-md-3 col-form-label text-md-right" >Prénom</label>
+		                            <label for="label" class="col-md-3 col-form-label text-md-right" >Label</label>
 
 		                            <div class="col-md-8">
-		                                <input id="nom" type="text" class="form-control" name="nom" placeholder="Vote Prénom" required  autofocus>
-		                            </div>
-		                        </div>
-		                        <div class="form-group row">
-		                            <label for="login" class="col-md-3 col-form-label text-md-right" >Login</label>
-
-		                            <div class="col-md-8">
-		                                <input id="nom" type="text" class="form-control" name="login" placeholder="Vote login" required  autofocus>
+		                                <input id="label" type="text" class="form-control" name="label" placeholder="Label" required  autofocus>
 		                            </div>
 		                        </div>
 
-		                        <div class="form-group row">
-		                            <label for="password" class="col-md-3 col-form-label text-md-right">Mot de passe</label>
-
-		                            <div class="col-md-8">
-		                                <input id="password" type="password" class="form-control" name="password1" placeholder="Votre mot de passe" required >
-
-		                                
-		                            </div>
-		                        </div>
-		                        <div class="form-group row">
-		                            <label for="password2" class="col-md-3 col-form-label text-md-right">Confirmez mot de passe</label>
-
-		                            <div class="col-md-8">
-		                                <input id="password2" type="password" class="form-control" name="password2" placeholder="Confirmez mot de passe" required >
-
-		                                
-		                            </div>
-		                        </div>
 						      </div>
 						      <div class="modal-footer">
 						        <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
