@@ -29,32 +29,32 @@ public class UserService {
     }
 
     @WebMethod
-    public User create(@WebParam(name = "name") String name, @WebParam(name = "login") String login, @WebParam(name = "password") String password, @WebParam(name = "profile") int profile) throws SQLException{
+    public User create(@WebParam(name = "token", header = true) String token, @WebParam(name = "name") String name, @WebParam(name = "login") String login, @WebParam(name = "password") String password, @WebParam(name = "profile") int profile) throws SQLException, InvalidTokenException{
+        verifyToken(token);
         return new UserDAO().createUser(new User(name, login, password, profile));
     }
 
     @WebMethod
-    public User get(@WebParam(name = "id") int id) throws SQLException{
+    public User get(@WebParam(name = "token", header = true) String token, @WebParam(name = "id") int id) throws SQLException, InvalidTokenException{
+        verifyToken(token);
         return new UserDAO().getUser(id);
     }
 
     @WebMethod
     public List<User> getAll(@WebParam(name = "token", header = true) String token) throws SQLException, InvalidTokenException {
-        if (token == null)
-            throw new InvalidTokenException("Please submit a valid token for accessing this ressource");
-        boolean isTokenValid = verifyToken(token);
-        if (!isTokenValid)
-            throw new InvalidTokenException("Please submit a valid token for accessing this ressource");
+        verifyToken(token);
         return new UserDAO().getAllUsers();
     }
 
     @WebMethod
-    public boolean delete(@WebParam(name = "id") int id) throws SQLException{
+    public boolean delete(@WebParam(name = "token", header = true) String token, @WebParam(name = "id") int id) throws SQLException, InvalidTokenException{
+        verifyToken(token);
         return new UserDAO().deleteUser(id);
     }
 
     @WebMethod
-    public boolean update(@WebParam(name = "id") int id, @WebParam(name = "name") String name, @WebParam(name = "login") String login, @WebParam(name = "password") String password, @WebParam(name = "profile") int profile) throws SQLException {
+    public boolean update(@WebParam(name = "token", header = true) String token, @WebParam(name = "id") int id, @WebParam(name = "name") String name, @WebParam(name = "login") String login, @WebParam(name = "password") String password, @WebParam(name = "profile") int profile) throws SQLException, InvalidTokenException{
+        verifyToken(token);
         return new UserDAO().updateUser(new User(id, name, login, password, profile));
     }
 
@@ -73,7 +73,7 @@ public class UserService {
         return DatatypeConverter.printHexBinary(token);
     }
 
-    private boolean verifyToken(String token) {
+    private boolean isTokenValid(String token) {
         try {
             byte[] cipher = DatatypeConverter.parseHexBinary(token);
             String pText = Symmetric.doAESDecryption(cipher, secretKey, initializationVector);
@@ -93,5 +93,11 @@ public class UserService {
         catch (NoSuchElementException | SQLException | IllegalArgumentException e) {
             return false;
         }
+    }
+
+    private void verifyToken(String token) throws InvalidTokenException {
+        boolean tokenValid = isTokenValid(token);
+        if (token == null || !tokenValid)
+            throw new InvalidTokenException("Please submit a valid token for accessing this ressource");
     }
 }
