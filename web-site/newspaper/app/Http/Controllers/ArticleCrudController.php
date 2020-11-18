@@ -6,7 +6,16 @@ use Illuminate\Http\Request;
 
 use App\Models\Article;
 
+use App\Models\Categorie;
+
 class ArticleCrudController extends Controller{
+
+    public function __construct(){
+
+        $this->middleware('auth');
+
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -23,6 +32,10 @@ class ArticleCrudController extends Controller{
      */
     public function create(){
         //
+        $categories = Categorie::all();
+
+        return view('pages.forms.add_article')->with('categories',$categories);
+
     }
 
     /**
@@ -37,7 +50,7 @@ class ArticleCrudController extends Controller{
 
         $content = $request->input('content');
 
-        $categorie_id = $request->input('categorie_id');
+        $categorie_id = $request->input('category_id');
 
         $user_id = $request->input('user_id');
 
@@ -52,6 +65,8 @@ class ArticleCrudController extends Controller{
         $article->user_id = $user_id;
 
         $article->save();
+
+        return redirect('/articles');
 
     }
 
@@ -74,6 +89,18 @@ class ArticleCrudController extends Controller{
     public function edit($id){
         //
 
+        $article = Article::find($id);
+
+        $categories = Categorie::all();
+
+        return view('pages.forms.edit_article')->with([
+
+            'article'=>$article,
+
+            'categories'=>$categories,
+
+        ]);
+
     }
 
     /**
@@ -89,7 +116,7 @@ class ArticleCrudController extends Controller{
 
         $content = $request->input('content');
 
-        $categorie_id = $request->input('categorie_id');
+        $categorie_id = $request->input('category_id');
 
         $article = Article::find($id);
 
@@ -100,6 +127,8 @@ class ArticleCrudController extends Controller{
         $article->categorie_id = $categorie_id;
 
         $article->save();
+
+        return redirect('/articles');
 
     }
 
@@ -112,6 +141,8 @@ class ArticleCrudController extends Controller{
     public function destroy($id){
         //
         $removal_result = Article::destroy($id);
+
+        return redirect('/articles');
 
     }
 }

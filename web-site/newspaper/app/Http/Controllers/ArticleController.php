@@ -8,17 +8,18 @@ use App\Models\Article;
 
 use App\Models\Categorie;
 
+use Illuminate\Support\Facades\DB;
+
 class ArticleController extends Controller{
 
     //
     public function get_articles(Request $request){
 
-        $articles = Article::all();
+        $articles = Article::orderBy('created_at','desc')->get();
 
         if($request->is('*api/articles')){
 
             return json_encode($articles);
-
 
         }
         elseif($request->is('*api/xml/articles')){
@@ -48,7 +49,17 @@ class ArticleController extends Controller{
         }
         else{
 
-            echo("wait for Coumba");
+            $articles = DB::table('articles')->orderBy('created_at','desc')->paginate(2);
+
+            $categories = Categorie::all();
+
+            return view('pages.articles')->with([
+
+                'articles'=>$articles,
+
+                'categories'=>$categories
+
+            ]);
 
         }
 
@@ -83,7 +94,7 @@ class ArticleController extends Controller{
 
         }else{
 
-            echo("wait for Coumba");
+            return view('pages.single_article')->with('article',$article);
 
         }
 
@@ -125,8 +136,19 @@ class ArticleController extends Controller{
 
         }else{
 
-            echo("wait for Coumba");
+            $category = Categorie::find($category_id);
 
+            $categories = Categorie::all();
+
+            return view('pages.category_articles')->with([
+
+                'articles'=>$articles,
+
+                'selected_category'=>$category,
+
+                'categories'=>$categories,
+
+            ]);
         }
     }
 
