@@ -18,10 +18,11 @@ public class UserDAO {
     
     public User createUser(User user) throws SQLException{
         Connection conn = ConnectionManager.getConnection();
-        PreparedStatement statement = conn.prepareStatement("INSERT INTO user (name, login, password) VALUES (?, ?, ?)", Statement.RETURN_GENERATED_KEYS);
+        PreparedStatement statement = conn.prepareStatement("INSERT INTO user (name, login, password, profile) VALUES (?, ?, MD5(?), ?)", Statement.RETURN_GENERATED_KEYS);
         statement.setString(1, user.getName());
         statement.setString(2, user.getLogin());
         statement.setString(3, user.getPassword());
+        statement.setInt(4, user.getProfile());
 
         int affectedRows = statement.executeUpdate();
 
@@ -51,6 +52,7 @@ public class UserDAO {
                     user.setPassword("");
                     return user;
                 }
+                else throw new RuntimeException("User not found");
             }
         }
         finally {
@@ -73,7 +75,9 @@ public class UserDAO {
                 resultSet = statement.executeQuery("SELECT * FROM user");
                 if (resultSet != null) {
                     while (resultSet.next()) {
-                        users.add(getUser(resultSet));
+                        User user = getUser(resultSet);
+                        user.setPassword("");
+                        users.add(user);
                     }
                     return users;
                 }
@@ -107,7 +111,7 @@ public class UserDAO {
 
     public boolean updateUser(User user) throws SQLException {
         Connection conn = ConnectionManager.getConnection();
-        String sql = "UPDATE user SET name = ?, login = ?, password = ? WHERE id_user = ?";
+        String sql = "UPDATE user SET name = ?, login = ?, password = ?, profile = ? WHERE id_user = ?";
         PreparedStatement statement = null;
         try {
             statement = conn.prepareStatement(sql);
@@ -115,6 +119,7 @@ public class UserDAO {
             statement.setString(cursor++, user.getName());
             statement.setString(cursor++, user.getLogin());
             statement.setString(cursor++, user.getPassword());
+            statement.setInt(cursor++, user.getProfile());
             statement.setInt(cursor++, user.getId());
             statement.execute();
             return true;
@@ -132,6 +137,7 @@ public class UserDAO {
         user.setName(resultSet.getString("name"));
         user.setLogin(resultSet.getString("login"));
         user.setPassword(resultSet.getString("password"));
+        user.setProfile(resultSet.getInt("profile"));
         return user;
     }
 
@@ -140,14 +146,13 @@ public class UserDAO {
         PreparedStatement statement = null;
         ResultSet resultSet = null;
         try {
-            statement = conn.prepareStatement("SELECT * FROM user WHERE login = ?");
+            statement = conn.prepareStatement("SELECT * FROM user WHERE login = ? AND password = MD5(?) AND profile > 0");
             statement.setString(1, login);
+            statement.setString(2, password);
             if (statement.execute()) {
                 resultSet = statement.getResultSet();
                 if (resultSet != null && resultSet.next()) {
                     User user = getUser(resultSet);
-                    if (!user.getPassword().equals(password))
-                        return null;
                     return user;
                 }
             }

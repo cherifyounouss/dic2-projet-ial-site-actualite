@@ -29,8 +29,8 @@ public class UserService {
     }
 
     @WebMethod
-    public User create(@WebParam(name = "name") String name, @WebParam(name = "login") String login, @WebParam(name = "password") String password) throws SQLException{
-        return new UserDAO().createUser(new User(name, login, password));
+    public User create(@WebParam(name = "name") String name, @WebParam(name = "login") String login, @WebParam(name = "password") String password, @WebParam(name = "profile") int profile) throws SQLException{
+        return new UserDAO().createUser(new User(name, login, password, profile));
     }
 
     @WebMethod
@@ -40,10 +40,8 @@ public class UserService {
 
     @WebMethod
     public List<User> getAll(@WebParam(name = "token", header = true) String token) throws SQLException, InvalidTokenException {
-        if (token == null) {
-            System.out.println("inside block 1");
+        if (token == null)
             throw new InvalidTokenException("Please submit a valid token for accessing this ressource");
-        }
         boolean isTokenValid = verifyToken(token);
         if (!isTokenValid)
             throw new InvalidTokenException("Please submit a valid token for accessing this ressource");
@@ -56,8 +54,8 @@ public class UserService {
     }
 
     @WebMethod
-    public boolean update(@WebParam(name = "id") int id, @WebParam(name = "name") String name, @WebParam(name = "login") String login, @WebParam(name = "password") String password) throws SQLException {
-        return new UserDAO().updateUser(new User(id, name, login, password));
+    public boolean update(@WebParam(name = "id") int id, @WebParam(name = "name") String name, @WebParam(name = "login") String login, @WebParam(name = "password") String password, @WebParam(name = "profile") int profile) throws SQLException {
+        return new UserDAO().updateUser(new User(id, name, login, password, profile));
     }
 
     @WebMethod
@@ -76,13 +74,12 @@ public class UserService {
     }
 
     private boolean verifyToken(String token) {
-        System.out.println(token);
-        byte[] cipher = DatatypeConverter.parseHexBinary(token);
-        String pText = Symmetric.doAESDecryption(cipher, secretKey, initializationVector);
-        System.out.println(pText);
-        Scanner input = new Scanner(pText);
-        input.useDelimiter(",");
         try {
+            byte[] cipher = DatatypeConverter.parseHexBinary(token);
+            String pText = Symmetric.doAESDecryption(cipher, secretKey, initializationVector);
+            System.out.println(pText);
+            Scanner input = new Scanner(pText);
+            input.useDelimiter(",");
             User user = new User(input.nextInt(), input.next(), input.next());
             long expiryTime = input.nextLong();
             if ((expiryTime - System.currentTimeMillis()) < 0)
@@ -93,7 +90,7 @@ public class UserService {
             else
                 return false;
         }
-        catch (NoSuchElementException | SQLException e) {
+        catch (NoSuchElementException | SQLException | IllegalArgumentException e) {
             return false;
         }
     }
