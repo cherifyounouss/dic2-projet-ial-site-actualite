@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="526125dd-0c5a-40b6-9896-f6be3cea4039" name="Default Changelist" comment="add get user service" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="ProjectId" id="1jUDhHHhxX5Jr5k6Xxxyb3oi2XL" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/lib/mysql-connector-java-8.0.22.jar!/" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+  </component>
+  <component name="RunManager">
+    <configuration name="Server" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="main.Server" />
+      <module name="soap-services" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="main.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Server" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="526125dd-0c5a-40b6-9896-f6be3cea4039" name="Default Changelist" comment="" />
+      <created>1603849893842</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1603849893842</updated>
+      <workItem from="1603849895782" duration="3023000" />
+      <workItem from="1605111533967" duration="19509000" />
+      <workItem from="1605659558117" duration="5334000" />
+      <workItem from="1605700579591" duration="12533000" />
+    </task>
+    <task id="LOCAL-00001" summary="add get user method">
+      <created>1603851542463</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1603851542463</updated>
+    </task>
+    <task id="LOCAL-00002" summary="add get user service">
+      <created>1603852170525</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1603852170525</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Update, Delete, Authenticate">
+      <created>1605181564145</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1605181564145</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Add constructor with all attributes">
+      <created>1605181584513</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1605181584513</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Token generation and verification">
+      <created>1605192841123</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1605192841123</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Added constructor">
+      <created>1605192854403</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1605192854403</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Logic of encryption and decryption">
+      <created>1605192885400</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1605192885400</updated>
+    </task>
+    <task id="LOCAL-00008" summary="add password encrypt and profile handling">
+      <created>1605662988877</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1605662988877</updated>
+    </task>
+    <task id="LOCAL-00009" summary="refactoring">
+      <created>1605664293491</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1605664293491</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Exception handling">
+      <created>1605721220643</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1605721220643</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="2" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="add get user method" />
+    <MESSAGE value="add get user service" />
+    <MESSAGE value="Update, Delete, Authenticate" />
+    <MESSAGE value="Add constructor with all attributes" />
+    <MESSAGE value="Token generation and verification" />
+    <MESSAGE value="Added constructor" />
+    <MESSAGE value="Logic of encryption and decryption" />
+    <MESSAGE value="add password encrypt and profile handling" />
+    <MESSAGE value="refactoring" />
+    <MESSAGE value="Exception handling" />
+    <option name="LAST_COMMIT_MESSAGE" value="Exception handling" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="166" y="0" width="1024" height="766" key="#Project_Structure" timestamp="1603850019276">
+      <screen x="0" y="0" width="1366" height="768" />
+    </state>
+    <state x="166" y="0" width="1024" height="766" key="#Project_Structure/0.0.1366.768@0.0.1366.768" timestamp="1603850019276" />
+    <state x="404" y="87" width="548" height="591" key="#com.intellij.ide.util.MemberChooser" timestamp="1605660307216">
+      <screen x="0" y="0" width="1366" height="768" />
+    </state>
+    <state x="404" y="87" width="548" height="591" key="#com.intellij.ide.util.MemberChooser/0.0.1366.768@0.0.1366.768" timestamp="1605660307216" />
+    <state x="416" y="132" width="524" height="501" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1605708128270">
+      <screen x="0" y="0" width="1366" height="768" />
+    </state>
+    <state x="416" y="132" width="524" height="501" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1366.768@0.0.1366.768" timestamp="1605708128270" />
+    <state x="278" y="88" width="789" height="588" key="FileChooserDialogImpl" timestamp="1605700714871">
+      <screen x="0" y="0" width="1366" height="768" />
+    </state>
+    <state x="278" y="88" width="789" height="588" key="FileChooserDialogImpl/0.0.1366.768@0.0.1366.768" timestamp="1605700714871" />
+    <state width="1320" height="184" key="GridCell.Tab.0.bottom" timestamp="1605773387164">
+      <screen x="0" y="0" width="1366" height="768" />
+    </state>
+    <state width="1320" height="184" key="GridCell.Tab.0.bottom/0.0.1366.768@0.0.1366.768" timestamp="1605773387164" />
+    <state width="1320" height="184" key="GridCell.Tab.0.center" timestamp="1605773387163">
+      <screen x="0" y="0" width="1366" height="768" />
+    </state>
+    <state width="1320" height="184" key="GridCell.Tab.0.center/0.0.1366.768@0.0.1366.768" timestamp="1605773387163" />
+    <state width="1320" height="184" key="GridCell.Tab.0.left" timestamp="1605773387163">
+      <screen x="0" y="0" width="1366" height="768" />
+    </state>
+    <state width="1320" height="184" key="GridCell.Tab.0.left/0.0.1366.768@0.0.1366.768" timestamp="1605773387163" />
+    <state width="1320" height="184" key="GridCell.Tab.0.right" timestamp="1605773387164">
+      <screen x="0" y="0" width="1366" height="768" />
+    </state>
+    <state width="1320" height="184" key="GridCell.Tab.0.right/0.0.1366.768@0.0.1366.768" timestamp="1605773387164" />
+    <state x="166" y="0" width="1024" height="766" key="SettingsEditor" timestamp="1603850162798">
+      <screen x="0" y="0" width="1366" height="768" />
+    </state>
+    <state x="166" y="0" width="1024" height="766" key="SettingsEditor/0.0.1366.768@0.0.1366.768" timestamp="1603850162798" />
+    <state x="4" y="87" width="1347" height="592" key="new project wizard" timestamp="1605700737713">
+      <screen x="0" y="0" width="1366" height="768" />
+    </state>
+    <state x="4" y="87" width="1347" height="592" key="new project wizard/0.0.1366.768@0.0.1366.768" timestamp="1605700737713" />
+  </component>
+</project>
